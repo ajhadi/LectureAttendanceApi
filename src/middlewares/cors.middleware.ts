@@ -1,0 +1,7 @@
+function corsOption() {
+    
+}
+
+export {
+    corsOption
+};
