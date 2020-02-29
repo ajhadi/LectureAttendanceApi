@@ -16,7 +16,6 @@ class ClassController implements Controller {
     }
 
     public initializeRoutes = () => {
-        this.router.get(`${this.path}/`, validationMiddleware(CreateClassDto), this.createClass.bind(this));
         this.router.post(`${this.path}/`, validationMiddleware(CreateClassDto), this.createClass.bind(this));
         this.router.delete(`${this.path}/:id`, this.deleteClass.bind(this));
         this.router.post(`${this.path}/section`, validationMiddleware(AddSectionDto), this.addSection.bind(this));

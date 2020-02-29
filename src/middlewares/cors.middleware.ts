@@ -1,7 +1,0 @@
-function corsOption() {
-    
-}
-
-export {
-    corsOption
-};

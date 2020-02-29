@@ -4,6 +4,7 @@ import { SequelizeAttributes } from '../../typings/SequelizeAttributes';
 export interface AttendanceAttributes {
     id?: string;
     isAbsent?: boolean;
+    userId:string;
 };
 
 export interface AttendanceInstance extends Sequelize.Instance<AttendanceAttributes>, AttendanceAttributes {
@@ -19,6 +20,9 @@ export const AttendanceFactory = (sequelize: Sequelize.Sequelize, DataTypes: Seq
         isAbsent: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
+        },
+        userId:{
+            type: DataTypes.STRING
         }
     };
 
@@ -26,7 +30,6 @@ export const AttendanceFactory = (sequelize: Sequelize.Sequelize, DataTypes: Seq
 
     Attendances.associate = models => {
         Attendances.belongsTo(models.ClassSections, { as: 'classSection', foreignKey: 'classSectionId' });
-        Attendances.belongsTo(models.Users, { as: 'student', foreignKey: 'userId' });
     };
 
     return Attendances;

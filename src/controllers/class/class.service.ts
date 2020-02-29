@@ -62,8 +62,14 @@ class ClassService {
         })
     }
 
-    private async isClassExist(id: string) {
+    public async isClassExist(id: string) {
         const classExist = await this.db.Classes.findOne({ where: { id: id, removalFlag: false } })
+        if (classExist == null) { return false }
+        return true
+    }
+
+    public async isClassSectionExist(id: string) {
+        const classExist = await this.db.ClassSections.findOne({ where: { id: id} })
         if (classExist == null) { return false }
         return true
     }

@@ -93,7 +93,6 @@ export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize
     Users.belongsToMany(models.Classes, {
       through: models.UserClasses
     });
-    Users.hasMany(models.Attendances, {as: 'attendances'});
   };
 
   return Users;

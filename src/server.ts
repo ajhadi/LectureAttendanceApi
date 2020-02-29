@@ -1,13 +1,15 @@
 import App from './app';
-import AuthenticationController from './controllers/authentication/authentication.controller';
 import UserController from './controllers/user/user.controller';
 import ClassController from './controllers/class/class.controller';
+import ScheduleController from './controllers/schedule/schedule.controller';
+import AttendanceController from './controllers/attendance/attendance.controller';
 
 const app = new App(
   [
-    new AuthenticationController(),
     new UserController(),
-    new ClassController()
+    new ClassController(),
+    new ScheduleController(),
+    new AttendanceController()
   ],
 );
 

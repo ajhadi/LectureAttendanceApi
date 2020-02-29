@@ -8,4 +8,6 @@ export class AppError {
     static ClassNotExist                     = new ErrorFactory( 1004,  404,  "Class doesn't exist." );
     static UserIsNotTeacher                    = new ErrorFactory( 1005,  404,  "User is not a teacher" );
     static StudentNotFound                   = new ErrorFactory( 1006,  404,  "Student not found!" );
+    static ScheduleNotFound                   = new ErrorFactory( 1007,  404,  "Schedule not found!" );
+
 }

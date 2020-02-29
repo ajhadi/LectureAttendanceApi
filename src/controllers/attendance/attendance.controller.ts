@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction, Router } from 'express';
 import Controller from '../../interfaces/controller.interface';
 import AttendanceService from './attendance.service';
+import UserPresentDto from './dtos/userPerest.dto';
 
 
 class AttendanceController implements Controller {
@@ -13,15 +14,28 @@ class AttendanceController implements Controller {
     }
 
     public initializeRoutes = () => {
-        this.router.post(`${this.path}/`, this.login.bind(this));
+        this.router.post(`${this.path}/present`, this.userPresent.bind(this));
+        this.router.post(`${this.path}/absent`, this.userAbsent.bind(this));
     }
 
-    /**
-     * @access     public
-     * @param   {string} 
-     * @return {object}
-     */
-    private async login(request: Request, response: Response, next: NextFunction) {
+    private async userPresent(request: Request, response: Response, next: NextFunction) {
+        let req : UserPresentDto = request.body
+        try {
+            let schedule = await this.AttendanceService.postPresent(req)
+            response.status(200).json(schedule)
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    private async userAbsent(request: Request, response: Response, next: NextFunction) {
+        let req : UserPresentDto = request.body
+        try {
+            let schedule = await this.AttendanceService.postAbsent(req)
+            response.status(200).json(schedule)
+        } catch (error) {
+            next(error);
+        }
     }
 }
 
