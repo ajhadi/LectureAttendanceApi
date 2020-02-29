@@ -1,5 +1,5 @@
 {
-  "name": "lecture.attendance.api",
+  "name": "ilecture.api",
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
@@ -14,6 +14,8 @@
   "dependencies": {
     "app-root-path": "^3.0.0",
     "babel-install": "^2.1.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "envalid": "^6.0.1",

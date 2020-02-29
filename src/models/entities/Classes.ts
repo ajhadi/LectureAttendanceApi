@@ -31,10 +31,8 @@ export const ClassFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequeliz
 
     Classes.associate = models => {
         Classes.belongsToMany(models.Users, {
-            through: models.UserClasses,
-            foreignKey: 'classesId'
+            through: models.UserClasses
         });
-        Classes.hasMany(models.ClassSections, { as: 'classSections' }); 
     };
 
     return Classes;

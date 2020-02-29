@@ -3,8 +3,10 @@ import { SequelizeAttributes } from '../../typings/SequelizeAttributes';
 
 export interface ClassSectionAttributes {
   id?: string;
-  classStartTime: Date;
-  classEndTime: Date;
+  classStartTime: Date|string;
+  classEndTime: Date|string;
+  classId: string;
+  teacherId: string;
 };
 
 export interface ClassSectionInstance extends Sequelize.Instance<ClassSectionAttributes>, ClassSectionAttributes {
@@ -22,14 +24,18 @@ export const ClassSectionFactory = (sequelize: Sequelize.Sequelize, DataTypes: S
     },
     classEndTime: {
         type: DataTypes.DATE
+    },
+    teacherId: {
+        type: DataTypes.STRING
+    },
+    classId: {
+        type: DataTypes.STRING
     }
   };
 
   const ClassSections = sequelize.define<ClassSectionInstance, ClassSectionAttributes>('class_sections', attributes);
 
   ClassSections.associate = models => {
-    ClassSections.belongsTo(models.Classes, { as: 'class', foreignKey: 'classId' });
-    ClassSections.belongsTo(models.Users, { as: 'teacher', foreignKey: 'teacherId' });
     ClassSections.hasMany(models.Attendances, { as: 'attendances' });
   };
 

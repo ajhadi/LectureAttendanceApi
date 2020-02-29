@@ -51,11 +51,9 @@ export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize
     },
     username: {
       type: DataTypes.STRING,
-      unique: true
     },
     email: {
       type: DataTypes.STRING,
-      unique: true,
       validate: {
         isEmail: true
       }
@@ -77,7 +75,16 @@ export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize
     }
   };
 
-  const Users = sequelize.define<UserInstance, UserAttributes>('users', attributes);
+  const Users = sequelize.define<UserInstance, UserAttributes>('users', attributes, {
+    defaultScope: {
+      attributes: { exclude: ['removalFlag', 'createdAt', 'updatedAt'] }
+    },
+    scopes: {
+      hidePassword:{
+        attributes: { exclude: ['passwordHash'] }
+      }
+    }
+  });
 
   Users.associate = models => {
     Users.belongsToMany(models.Roles, {
@@ -86,7 +93,6 @@ export const UserFactory = (sequelize: Sequelize.Sequelize, DataTypes: Sequelize
     Users.belongsToMany(models.Classes, {
       through: models.UserClasses
     });
-    Users.hasMany(models.Classes, {as: 'teacher'});
     Users.hasMany(models.Attendances, {as: 'attendances'});
   };
 
