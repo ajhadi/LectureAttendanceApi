@@ -5,6 +5,6 @@ export default class UserPresentDto {
     public userId: string;
     
   @IsString()
-    public classId: string;
+    public classSectionId: string;
   }
 }
