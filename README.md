@@ -10,6 +10,7 @@
 
 - `npm`
 - `mysql or PHPMyAdmin(XAMPP)`
+- `Postman
 
 ## Usage
 
@@ -43,7 +44,9 @@ npm run dev
 ```
 
 - Run API on `http://localhost:5001`
-- And `http://localhost:5001/api-docs` for API documentations
+
+
+- For Demo/Example import Collection on Postman with URL `https://www.getpostman.com/collections/e305745d26d8d0b4e81b`
 
 - [Watch Demo App]()
 

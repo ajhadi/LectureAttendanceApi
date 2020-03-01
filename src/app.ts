@@ -7,8 +7,8 @@ import cors from 'cors';
 import { createModels } from './models';
 import { DB } from './utils/config';
 import { DbInterface } from './typings/DbInterface';
-import * as swaggerUi from 'swagger-ui-express';
-import swaggerDocument from './utils/config/swagger';
+// import * as swaggerUi from 'swagger-ui-express';
+// import swaggerDocument from './utils/config/swagger';
 
 class App {
   public app: express.Application;
@@ -34,7 +34,7 @@ class App {
 
   private initializeMiddlewares() {
     this.app.use(express.json());
-    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    // this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     this.app.use(morgan('combined', { stream: logger.stream }));
     this.app.use(cors())
   }

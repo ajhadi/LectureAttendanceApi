@@ -1,10 +1,7 @@
 export default {
     "swagger": "2.0",
-    "info": {
-        "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
-        "version": "1.0.0",
+    "info": {"version": "1.0.0",
         "title": "Ilecture API",
-        "termsOfService": "http://localhost:5001",
         "contact": {
             "email": "ahmadhadijaelani@gmail.com"
         }
@@ -13,23 +10,34 @@ export default {
     "basePath": "/api",
     "tags": [
         {
-            "name": "Authentication",
-            "description": "Everything about your Pets"
+            "name": "User",
+            "description": "For user manager."
         },
         {
-            "name": "User",
-            "description": "Access to Petstore orders"
+            "name": "Class",
+            "description": "For Class Manager."
+        },
+        {
+            "name": "Schedule",
+            "description": "For Schedule Maneger"
+        },
+        {
+            "name": "Attendance",
+            "description": "For attendance sign."
         }
     ],
     "paths": {
-        "/user/{username}": {
-            "get": {
+        "/user/student": {
+            "post": {
                 "tags": [
                     "User"
                 ],
-                "summary": "Find pet by ID",
+                "summary": "Create new Student",
                 "description": "Returns a single pet",
                 "operationId": "getPetById",
+                "consumes": [
+                    "application/json"
+                ],
                 "produces": [
                     "application/json"
                 ],
