@@ -47,7 +47,7 @@ class UserService {
             }
         })
 
-        if (!await this.isUserExist(user)) { throw new HttpException(AppError.ValidationError).AddDeveloperMessage('User exist.') }
+        if (await this.isUserExist(user)) { throw new HttpException(AppError.ValidationError).AddDeveloperMessage('User exist.') }
 
         await this.db.Users.create({
             fullName: user.fullName,
