@@ -26,8 +26,6 @@ DB_PASSWORD = 'VTdl3RgWBn'
 DB_NAME = 'mAzWvi09dV'
 DB_PORT = 3306
 DB_DIALECT = 'mysql'
-
-AUTHENTICATION_CLIENT_SECRET_KEY = 
 ```
 - Open your terminal or cmd and type
 ````
