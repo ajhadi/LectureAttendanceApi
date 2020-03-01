@@ -10,7 +10,7 @@
 
 - `npm`
 - `mysql or PHPMyAdmin(XAMPP)`
-- `Postman
+- `Postman`
 
 ## Usage
 
