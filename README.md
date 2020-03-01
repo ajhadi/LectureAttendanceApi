@@ -17,14 +17,14 @@
 - Open the folder on VSCode etc.
 - add `.env` file
 ```
-PORT = 
+PORT = 5001
 
-DB_HOST = 
-DB_USER = 
-DB_PASSWORD = 
-DB_NAME = 
-DB_PORT = 
-DB_DIALECT = 
+DB_HOST = 'remotemysql.com'
+DB_USER = 'mAzWvi09dV'
+DB_PASSWORD = 'VTdl3RgWBn'
+DB_NAME = 'mAzWvi09dV'
+DB_PORT = 3306
+DB_DIALECT = 'mysql'
 
 AUTHENTICATION_CLIENT_SECRET_KEY = 
 ```
